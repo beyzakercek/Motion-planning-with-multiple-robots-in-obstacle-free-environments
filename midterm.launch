@@ -1,0 +1,9 @@
+<launch>
+	<arg  name ="start_delay" default="0.3"/>
+	<node pkg="turtlesim" name="turtle1" type="turtlesim_node"/>
+	<node pkg="rosservice" type="rosservice" name="turtle2" args=" call /spawn 2 2 0.2 turtle2" launch-prefix="bash -c 'sleep $(arg start_delay); $0 $@'"/>
+
+	<node pkg="beginner_tutorials" name="move1" type="firstTurtle.py" args ="1"/>
+	<node pkg="beginner_tutorials" name="move2" type="secondTurtle.py" args ="2"/>
+
+</launch>
